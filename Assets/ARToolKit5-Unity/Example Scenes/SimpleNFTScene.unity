@@ -1268,7 +1268,7 @@ MonoBehaviour:
   PatternWidth: 0.08
   BarcodeID: 0
   MultiConfigFile: 
-  NFTDataName: 1-1A
+  NFTDataName: 001
   currentUseContPoseEstimation: 0
   currentFiltered: 0
   currentFilterSampleRate: 30

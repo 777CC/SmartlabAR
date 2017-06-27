@@ -239,19 +239,22 @@ public class ARMarker : MonoBehaviour
 			case MarkerType.NFT:
 				#if !UNITY_METRO
 				if (dir.Contains("://")) {
-                    dir = Application.persistentDataPath + "/Marker";
+                    //dir = Application.persistentDataPath + "/Marker";
 
-					// On Android, we need to unpack the StreamingAssets from the .jar file in which
-					// they're archived into the native file system.
-					//dir = Application.temporaryCachePath;
-					//foreach (string ext in NFTDataExts) {
-					//	string basename = NFTDataName + "." + ext;
-					//	if (!unpackStreamingAssetToCacheDir(basename)) {
-					//		dir = "";
-					//		break;
-					//	}
-					//}
-				}
+                    // On Android, we need to unpack the StreamingAssets from the.jar file in which
+                    //they're archived into the native file system. 
+
+                    dir = Application.temporaryCachePath;
+                    foreach (string ext in NFTDataExts)
+                    {
+                        string basename = NFTDataName + "." + ext;
+                        if (!unpackStreamingAssetToCacheDir(basename))
+                        {
+                            dir = "";
+                            break;
+                        }
+                    }
+                }
 				#endif
 			
 				if (!string.IsNullOrEmpty(dir) && !string.IsNullOrEmpty(NFTDataName)) {
