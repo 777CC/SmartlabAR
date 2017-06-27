@@ -1,0 +1,3 @@
+﻿server:ftp://ftp.huntermusicthailand.com:2121/domains/huntermusicthailand.com/public_html
+username:huntermusi
+password:62756e0afb
