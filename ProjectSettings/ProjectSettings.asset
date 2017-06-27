@@ -10,8 +10,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: HMT
-  productName: HMTAR
+  companyName: SmartLab
+  productName: SLAR
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21176471, a: 1}
@@ -141,14 +141,14 @@ PlayerSettings:
   targetPixelDensity: 0
   resolutionScalingMode: 0
   applicationIdentifier:
-    Android: com.HMT.AR
+    Android: com.SmartLab.AR
     Standalone: unity.AR.HunterAR
     Tizen: com.Artoolkit.demo
     iOS: com.Artoolkit.demo
     tvOS: com.Artoolkit.demo
   buildNumber:
     iOS: 0
-  AndroidBundleVersionCode: 2
+  AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -222,8 +222,8 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/chain/Desktop/HunterMusicAR/HMTAR.keystore
-  AndroidKeyaliasName: mr.tossaporn klinrun
+  AndroidKeystoreName: 
+  AndroidKeyaliasName: 
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
