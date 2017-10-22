@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 4acafeb5fb60cdb4bb49148b6814e6f1
+timeCreated: 1507784149
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: supermarket
+  fontNames:
+  - supermarket
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

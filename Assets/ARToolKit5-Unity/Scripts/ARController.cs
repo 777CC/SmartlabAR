@@ -98,12 +98,20 @@ public class ARController : MonoBehaviour
 	private bool _useNativeGLTexturing = false;
 	private bool _useColor32 = true;
 
-	//
-	// Video source 0.
-	//
 
-	// Config. in.
-	public string videoCParamName0 = "camera_para";
+    public bool IsRunning
+    {
+        get
+        {
+            return _running;
+        }
+    }
+    //
+    // Video source 0.
+    //
+
+    // Config. in.
+    public string videoCParamName0 = "camera_para";
 	public string videoConfigurationWindows0 = "-showDialog -flipV";
 	public string videoConfigurationMacOSX0 = "-width=640 -height=480";
 	public string videoConfigurationiOS0 = "";
@@ -362,10 +370,10 @@ public class ARController : MonoBehaviour
 		//Log(LogTag + "ARController.Start()");
         
 		// Ensure ARMarker objects that were instantiated/deserialized before the native interface came up are all loaded.
-		ARMarker[] markers = FindObjectsOfType(typeof(ARMarker)) as ARMarker[];
-		foreach (ARMarker m in markers) {
-			m.Load();
-		}
+		//ARMarker[] markers = FindObjectsOfType(typeof(ARMarker)) as ARMarker[];
+		//foreach (ARMarker m in markers) {
+		//	m.Load();
+		//}
 		
 		if (Application.isPlaying) {
 			

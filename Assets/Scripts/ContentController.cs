@@ -36,6 +36,20 @@ public class ContentController : MonoBehaviour
         LoadContent();
     }
 
+    public static string ContentDirectory
+    {
+        get
+        {
+#if UNITY_ANDROID && !UNITY_EDITOR
+              return Application.persistentDataPath;
+#else
+            //return Application.streamingAssetsPath;
+            return Application.persistentDataPath;
+#endif
+
+        }
+    }
+
     public void UpdateContent()
     {
         StartCoroutine(Memberinfo.DownloadARData(Memberinfo.Instance.ID,(string e)=> {
@@ -149,7 +163,7 @@ public class ContentController : MonoBehaviour
 
     private void HideContent()
     {
-        arCamera.ClearSmooth();
+        //arCamera.ClearSmooth();
         contentMesh.enabled = false;
         OpenWebsiteUI.SetActive(false);
         switch (Memberinfo.Instance.ContentType)

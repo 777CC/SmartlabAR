@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ARTEst.unity
-    guid: 86d90f60ba5e3fb4abe85c4b51434982
+    path: Assets/SmartLabAR.unity
+    guid: 4b717afbc7f7cde47bea8e241f8b477a

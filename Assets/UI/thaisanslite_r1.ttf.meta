@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 47d59e41f441f9c488d53adb606ff707
+timeCreated: 1507783380
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Thai Sans Lite
+  fontNames:
+  - Thai Sans Lite
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

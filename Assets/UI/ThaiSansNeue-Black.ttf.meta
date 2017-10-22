@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d45a8d7ccfb0d064f926240e016b1384
+timeCreated: 1507623871
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -1
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: ThaiSans Neue
+  fontNames:
+  - ThaiSans Neue
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 02bbbe019f664e145b64b2768de05eec, type: 3}
+  customCharacters: 
+  fontRenderingMode: 3
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
