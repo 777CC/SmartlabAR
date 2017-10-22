@@ -51,6 +51,9 @@ public class ListController : MonoBehaviour {
     private Sprite pause;
     [SerializeField]
     private Image videoControl;
+
+    [SerializeField]
+    private GameObject VideoControllerUIFadeChecker;
     public enum Page
     {
         Landing,
@@ -243,5 +246,11 @@ public class ListController : MonoBehaviour {
             videoPlayer.Play();
             videoControl.sprite = pause;
         }
+    }
+
+    public void Fade()
+    {
+        VideoControllerUIFadeChecker.GetComponent<Image>().raycastTarget = false;
+        VideoControllerUIFadeChecker.GetComponent<Button>().interactable = false;
     }
 }
