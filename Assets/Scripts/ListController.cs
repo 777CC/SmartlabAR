@@ -45,7 +45,7 @@ public class ListController : MonoBehaviour {
     [SerializeField]
     private Slider videoTimeSlider;
 
-    enum Page
+    public enum Page
     {
         Landing,
         List,
@@ -90,7 +90,12 @@ public class ListController : MonoBehaviour {
         }
     }
 
-    void ShowPage(Page page)
+    public void ShowLadingPage()
+    {
+        ShowPage(Page.Landing);
+    }
+
+    public void ShowPage(Page page)
     {
         foreach(KeyValuePair<Page, CanvasGroup> pair in PageToCanvasGroup)
         {
@@ -104,7 +109,7 @@ public class ListController : MonoBehaviour {
                 }
             }
             else{
-                pair.Value.alpha = 1;
+                pair.Value.alpha = 0;
                 if (page != Page.Landing)
                 {
                     pair.Value.interactable = false;
