@@ -45,6 +45,12 @@ public class ListController : MonoBehaviour {
     [SerializeField]
     private Slider videoTimeSlider;
 
+    [SerializeField]
+    private Sprite play;
+    [SerializeField]
+    private Sprite pause;
+    [SerializeField]
+    private Image videoControl;
     public enum Page
     {
         Landing,
@@ -88,6 +94,12 @@ public class ListController : MonoBehaviour {
                 }
             });
         }
+
+        videoTimeSlider.onValueChanged.AddListener((time) =>{
+            if (videoPlayer.canSetTime &&( time < videoPlayer.time - 2 || time > videoPlayer.time + 2)) {
+                videoPlayer.time = time;
+                }
+        });
     }
 
     public void ShowLadingPage()
@@ -215,6 +227,21 @@ public class ListController : MonoBehaviour {
         if (videoPlayer.isPlaying)
         {
             videoTimeSlider.value = (float)videoPlayer.time;
+        }
+    }
+    
+
+    public void PlayOrPause()
+    {
+        if (videoPlayer.isPlaying)
+        {
+            videoPlayer.Pause();
+            videoControl.sprite = play;
+        }
+        else
+        {
+            videoPlayer.Play();
+            videoControl.sprite = pause;
         }
     }
 }
