@@ -53,7 +53,7 @@ public class ListController : MonoBehaviour {
     private Image videoControl;
 
     [SerializeField]
-    private GameObject VideoControllerUIFadeChecker;
+    private CanvasGroup navbarPanel;
     public enum Page
     {
         Landing,
@@ -112,7 +112,8 @@ public class ListController : MonoBehaviour {
 
     public void ShowPage(Page page)
     {
-        foreach(KeyValuePair<Page, CanvasGroup> pair in PageToCanvasGroup)
+        sound.PlayOneShot(clickSound);
+        foreach (KeyValuePair<Page, CanvasGroup> pair in PageToCanvasGroup)
         {
             if(page == pair.Key)
             {
@@ -201,24 +202,53 @@ public class ListController : MonoBehaviour {
         if(videoClip != null)
         {
             videoPlayer.clip = videoClip;
+            videoPlayer.EnableAudioTrack(0, true);
+            videoPlayer.SetTargetAudioSource(0, GetComponent<AudioSource>());
             videoPlayer.Play();
             videoPanel.alpha = 1;
             videoPanel.interactable = true;
             videoPanel.blocksRaycasts = true;
 
+            videoControl.sprite = pause;
+
             videoTimeSlider.maxValue = (float)videoClip.length;
 
+
+
             ShowPage(Page.Video);
+
+            FadeIn();
+
+            Screen.orientation = ScreenOrientation.AutoRotation;
+            Screen.autorotateToLandscapeLeft = true;
+            Screen.autorotateToLandscapeRight = true;
+            Screen.autorotateToPortrait = true;
+            Screen.autorotateToPortraitUpsideDown = true;
+
+            navbarPanel.alpha = 0;
+            navbarPanel.interactable = false;
+            navbarPanel.blocksRaycasts = false;
         }
     }
 
     public void StopVideo()
     {
+        FadeCount = 0;
         videoPlayer.Stop();
+        videoPlayer.clip = null;
         ShowPage(Page.List);
         //Destroy(videoClip);
         videoClip = null;
         Resources.UnloadUnusedAssets();
+        Screen.orientation = ScreenOrientation.Portrait;
+        Screen.autorotateToLandscapeLeft = false;
+        Screen.autorotateToLandscapeRight = false;
+        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortraitUpsideDown = false;
+
+        navbarPanel.alpha = 1;
+        navbarPanel.interactable = true;
+        navbarPanel.blocksRaycasts = true;
     }
     public bool IsPlaying()
     {
@@ -230,6 +260,18 @@ public class ListController : MonoBehaviour {
         if (videoPlayer.isPlaying)
         {
             videoTimeSlider.value = (float)videoPlayer.time;
+            
+        }
+        if(fade==null && Input.GetMouseButtonDown(0) && videoPlayer.clip != null)
+        {
+           FadeIn();
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                FadeCount = FadeCountMax;
+            }
         }
     }
     
@@ -248,9 +290,28 @@ public class ListController : MonoBehaviour {
         }
     }
 
-    public void Fade()
+    public void FadeIn()
     {
-        VideoControllerUIFadeChecker.GetComponent<Image>().raycastTarget = false;
-        VideoControllerUIFadeChecker.GetComponent<Button>().interactable = false;
+        Debug.Log("fadein");
+        LeanTween.alphaCanvas(videoPanel, 1, 0.4f);
+        fade  = StartCoroutine(WaitForFadeOut());
+    }
+    private Coroutine fade;
+    private float FadeCount;
+    private const float FadeCountMax = 3;
+    IEnumerator WaitForFadeOut()
+    {
+        FadeCount = FadeCountMax;
+        Debug.Log(FadeCount);
+        while (FadeCount > 0)
+        {
+            Debug.Log(FadeCount);
+            yield return new WaitForSeconds(0.5f);
+            FadeCount -= 0.5f;
+        }
+        LeanTween.alphaCanvas(videoPanel, 0, 0.4f);
+        fade = null;
+        Debug.Log(FadeCount);
+        yield return true;
     }
 }
