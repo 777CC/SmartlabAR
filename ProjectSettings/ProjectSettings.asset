@@ -232,9 +232,8 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: /Users/phil/Dropbox/ARToolworks-engineering/Release engineering/Android
-    app signing/artoolworks-release.keystore
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: C:/Users/chain/Desktop/SmartlabAR/user.keystore
+  AndroidKeyaliasName: smartlab
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0

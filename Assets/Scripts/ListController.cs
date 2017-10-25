@@ -54,6 +54,8 @@ public class ListController : MonoBehaviour {
 
     [SerializeField]
     private CanvasGroup navbarPanel;
+    [SerializeField]
+    private CanvasGroup videoControlPanel;
     public enum Page
     {
         Landing,
@@ -112,7 +114,6 @@ public class ListController : MonoBehaviour {
 
     public void ShowPage(Page page)
     {
-        sound.PlayOneShot(clickSound);
         foreach (KeyValuePair<Page, CanvasGroup> pair in PageToCanvasGroup)
         {
             if(page == pair.Key)
@@ -151,6 +152,7 @@ public class ListController : MonoBehaviour {
     public void StartAR()
     {
         ShowPage(Page.Landing);
+        sound.PlayOneShot(clickSound);
         if (!arManager.IsRunning)
         {
             sound.PlayOneShot(clickSound);
@@ -170,6 +172,7 @@ public class ListController : MonoBehaviour {
     {
         if(isOn)
         {
+            sound.PlayOneShot(clickSound);
             StopAR();
             ShowInfoList();
         }
@@ -184,6 +187,7 @@ public class ListController : MonoBehaviour {
     {
         if (isOn)
         {
+            sound.PlayOneShot(clickSound);
             StopAR();
             ShowVideoList();
         }
@@ -236,7 +240,14 @@ public class ListController : MonoBehaviour {
         FadeCount = 0;
         videoPlayer.Stop();
         videoPlayer.clip = null;
-        ShowPage(Page.List);
+        if (!arManager.IsRunning)
+        {
+            ShowPage(Page.List);
+        }
+        else
+        {
+            ShowPage(Page.None);
+        }
         //Destroy(videoClip);
         videoClip = null;
         Resources.UnloadUnusedAssets();
@@ -252,7 +263,8 @@ public class ListController : MonoBehaviour {
     }
     public bool IsPlaying()
     {
-        return productList.interactable;
+        //return productList.interactable;
+        return videoPlayer.clip != null;
     }
     
     private void Update()
@@ -292,8 +304,10 @@ public class ListController : MonoBehaviour {
 
     public void FadeIn()
     {
-        Debug.Log("fadein");
-        LeanTween.alphaCanvas(videoPanel, 1, 0.4f);
+        //Debug.Log("fadein");
+        LeanTween.alphaCanvas(videoControlPanel, 1, 0.4f);
+        videoControlPanel.interactable = true;
+        videoControlPanel.blocksRaycasts = true;
         fade  = StartCoroutine(WaitForFadeOut());
     }
     private Coroutine fade;
@@ -302,16 +316,17 @@ public class ListController : MonoBehaviour {
     IEnumerator WaitForFadeOut()
     {
         FadeCount = FadeCountMax;
-        Debug.Log(FadeCount);
         while (FadeCount > 0)
         {
-            Debug.Log(FadeCount);
             yield return new WaitForSeconds(0.5f);
             FadeCount -= 0.5f;
         }
-        LeanTween.alphaCanvas(videoPanel, 0, 0.4f);
+        LeanTween.alphaCanvas(videoControlPanel, 0, 0.4f);
+        videoControlPanel.interactable = false;
+        videoControlPanel.blocksRaycasts = false;
+
         fade = null;
-        Debug.Log(FadeCount);
+        //Debug.Log("Fade out " + FadeCount);
         yield return true;
     }
 }

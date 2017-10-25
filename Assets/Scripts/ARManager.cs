@@ -92,7 +92,7 @@ public class ARManager : MonoBehaviour
         }
     }
 
-    IEnumerator Load(CanvasGroup canvasGroup)
+    IEnumerator Load(CanvasGroup landingPageCG)
     {
         
 
@@ -142,19 +142,19 @@ public class ARManager : MonoBehaviour
                     marker.enabled = true;
                 }
                 loadingCount++;
-                LoadingText.text = ((loadingCount * 100) / (arMarkers.Length+1)).ToString() + "%";
+                LoadingText.text = ((loadingCount * 100) / (arMarkers.Length + 1)).ToString() + "%";
                 yield return new WaitForSeconds(0.7f);
             }
         }
 
         //Destroy(LoadingPanel);
         //yield return new WaitUntil(() => arController.IsRunning);PluginFunctions.arwIsRunning()
-        
+
         yield return new WaitUntil(() => PluginFunctions.arwIsRunning());
         LoadingText.text = "100%";
         yield return new WaitForSeconds(0.4f);
         LoadingPanel.SetActive(false);
-        canvasGroup.alpha = 0;
+        landingPageCG.alpha = 0;
         //yield return new WaitForSeconds(0.01f);
     }
 
