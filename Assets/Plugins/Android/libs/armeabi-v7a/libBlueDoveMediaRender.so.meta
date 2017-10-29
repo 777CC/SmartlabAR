@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fbae1728d8638480bb1f81b3e1ac1a13
+guid: 5a097070b68af32408a77884d8327427
 PluginImporter:
   serializedVersion: 2
   iconMap: {}
@@ -12,7 +12,8 @@ PluginImporter:
         Android: Android
       second:
         enabled: 1
-        settings: {}
+        settings:
+          CPU: ARMv7
     data:
       first:
         Any: 
