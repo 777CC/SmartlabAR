@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f0483fe3ab72c4377be74112c571631f
-timeCreated: 1438928554
+guid: 472b860116dfa4c8e89bfd08899926d1
+timeCreated: 1496189721
 licenseType: Pro
 PluginImporter:
   serializedVersion: 2
@@ -15,7 +15,7 @@ PluginImporter:
       second:
         enabled: 1
         settings:
-          CPU: ARMv7
+          CPU: x86
     data:
       first:
         Any: 

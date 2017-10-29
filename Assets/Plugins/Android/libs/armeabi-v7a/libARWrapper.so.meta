@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: 5b66cd6595c88da4293dfe25a26847b8
+guid: 4b047bacae9d64b859141540e7adcacc
+timeCreated: 1496185203
+licenseType: Pro
 PluginImporter:
   serializedVersion: 2
   iconMap: {}
@@ -12,7 +14,8 @@ PluginImporter:
         Android: Android
       second:
         enabled: 1
-        settings: {}
+        settings:
+          CPU: ARMv7
     data:
       first:
         Any: 
