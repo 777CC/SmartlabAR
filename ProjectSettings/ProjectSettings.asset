@@ -145,8 +145,13 @@ PlayerSettings:
     iOS: com.Company.ProductName
     tvOS: com.Company.ProductName
   buildNumber:
+<<<<<<< HEAD
     iOS: 1
   AndroidBundleVersionCode: 4
+=======
+    iOS: 0
+  AndroidBundleVersionCode: 5
+>>>>>>> 850fae465161b34068d43b8e6e7c7e1dee8f0a3b
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -216,7 +221,7 @@ PlayerSettings:
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
   appleEnableAutomaticSigning: 0
-  AndroidTargetDevice: 3
+  AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: C:/Users/chain/Desktop/SmartlabAR/user.keystore
