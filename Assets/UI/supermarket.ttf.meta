@@ -4,7 +4,11 @@ timeCreated: 1507784149
 licenseType: Pro
 TrueTypeFontImporter:
   serializedVersion: 4
+<<<<<<< HEAD
   fontSize: 80
+=======
+  fontSize: 60
+>>>>>>> 7a6ce173a781255923171abf556e4839010ad4d5
   forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
