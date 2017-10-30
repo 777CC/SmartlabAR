@@ -94,7 +94,21 @@ public class ARManager : MonoBehaviour
 
     IEnumerator Load(CanvasGroup landingPageCG)
     {
-        
+        int loadingCount = 0;
+        LoadingText.text = "0%";
+        if (arMarkers.Length > 0)
+        {
+            foreach (ARMarker marker in arMarkers)
+            {
+                if (!marker.isActiveAndEnabled)
+                {
+                    marker.enabled = true;
+                }
+                loadingCount++;
+                LoadingText.text = ((loadingCount * 100) / (arMarkers.Length + 1)).ToString() + "%";
+                yield return new WaitForSeconds(0.7f);
+            }
+        }
 
         Debug.Log(arController.enabled + " : " + !arController.IsRunning);
         //yield return new WaitForSeconds(5);
@@ -131,21 +145,7 @@ public class ARManager : MonoBehaviour
 
 
 
-        int loadingCount = 0;
-        LoadingText.text = "0%";
-        if (arMarkers.Length > 0)
-        {
-            foreach (ARMarker marker in arMarkers)
-            {
-                if (!marker.isActiveAndEnabled)
-                {
-                    marker.enabled = true;
-                }
-                loadingCount++;
-                LoadingText.text = ((loadingCount * 100) / (arMarkers.Length + 1)).ToString() + "%";
-                yield return new WaitForSeconds(0.7f);
-            }
-        }
+        
 
         //Destroy(LoadingPanel);
         //yield return new WaitUntil(() => arController.IsRunning);PluginFunctions.arwIsRunning()
