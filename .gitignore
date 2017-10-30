@@ -83,6 +83,4 @@ $RECYCLE.BIN/
 
 # Product video
 /Assets/Resources/*
-
-# iOS
 /iOS/*
