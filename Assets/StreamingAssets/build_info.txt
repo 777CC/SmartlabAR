@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-Build from chain’s MacBook at 10/30/2017 11:25:46
-=======
-Build from DESKTOP-GOH6CCF at 10/30/2017 2:34:08 PM
->>>>>>> 7a6ce173a781255923171abf556e4839010ad4d5
+Build from chain’s MacBook at 10/30/2017 16:50:47
