@@ -95,6 +95,7 @@ public class ListController : MonoBehaviour {
                 }
                 else
                 {
+						Debug.Log("Click : " + buf);
                     Play("SmartLab0" + (buf+1));
                 }
             });
